@@ -12,8 +12,16 @@ Abre `index.html` y edita el bloque **DATOS DE LA WEB** del principio:
 | Artistas (nombre, especialidad, frase, estilos, Instagram, foto) | `const ARTISTAS` |
 | Trabajos de la galería (título, estilo, artista, zona, imagen) | `const TRABAJOS` |
 | Flash (nombre, precio, tamaño, disponible, imagen) | `const FLASH` |
+| Temáticas de las cintas animadas | `const TEMATICAS` |
+| Demo de sesiones de un proyecto (pasos, fechas, material) | `const PROYECTO` |
+| Un día de sesión hora a hora | `const DIA_SESION` |
+| Mapa del dolor (zona, dolor 1–5, curación, consejo) | `const ZONAS_DOLOR` |
+| Artistas invitados (fechas, huecos) | `const INVITADOS` |
+| Servicios y precios | `const SERVICIOS` |
+| Reseñas (solo iniciales) y cifras del estudio | `const RESENAS` y `ESTUDIO.cifras` |
 
-- Sustituye los marcadores `[DIRECCIÓN]`, `[CIUDAD]`, `[BARRIO]`, `[CORREO]`, `[WHATSAPP]`, `[INSTAGRAM]` y los Instagram de cada artista.
+- Sustituye los marcadores `[DIRECCIÓN]`, `[CIUDAD]`, `[BARRIO]`, `[CORREO]`, `[WHATSAPP]`, `[TELÉFONO]`, `[INSTAGRAM]` y los Instagram de cada artista. Los enlaces legales del pie (privacidad, aviso legal, cookies) apuntan a `#`: enlázalos a las páginas reales.
+- Las reseñas, cifras, artistas invitados y el proyecto de sesiones son de muestra: cámbialos por los reales antes de publicar la web de un estudio.
 - WhatsApp va con prefijo de país y sin espacios: `34600111222`.
 - Para añadir algo, copia un bloque `{ ... }` y cámbialo. Los filtros y los desplegables de la reserva se generan solos.
 - Si un trabajo o flash no tiene `imagen`, la web dibuja una ilustración SVG con su nombre. Para usar fotos, crea una carpeta `img/` y pon la ruta: `imagen: "img/golondrina.jpg"`.
