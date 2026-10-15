@@ -5,7 +5,7 @@ Web demo de un estudio de tatuajes ficticio ("Calco") para enseñar a dueños de
 - HTML + CSS + JavaScript sin dependencias, todo en `index.html`.
 - Google Fonts: Shrikhand (titulares, aire de rótulo pintado) + Archivo (texto).
 - Ilustraciones 100 % SVG generadas en código (sin fotos ni imágenes externas).
-- Despliegue estático: Cloudflare Pages (repo GitHub `AleexX26/demo-tatuaje-2`), vale también Netlify, Vercel o GitHub Pages.
+- Despliegue: Cloudflare Workers con assets estáticos (worker `demo-tatuaje-2`, cuenta minisobri26), Git integration con el repo `AleexX26/demo-tatuaje-2`. URL: https://demo-tatuaje-2.e275.workers.dev
 
 ## Arquitectura
 - `index.html`
@@ -18,9 +18,12 @@ Web demo de un estudio de tatuajes ficticio ("Calco") para enseñar a dueños de
 
 ## Comandos
 - Ver en local: abrir `index.html` con doble clic, o `npx --yes http-server -p 4321 -c-1 .` (config en `.claude/launch.json`, nombre `web`).
-- Sin build ni tests. Deploy: push a `main` → Cloudflare Pages (preset "None", build command vacío, output `/`).
+- Sin build ni tests. Deploy: push a `main` → Cloudflare redespliega solo (~2-4 min). `wrangler.jsonc` copia `index.html` a `publico/` (ignorado en git) y sirve solo esa carpeta, así README/CLAUDE.md no se publican.
+- Probar el despliegue sin subir: `npx --yes wrangler@4 deploy --dry-run`.
 
 ## Decisiones
+- 2026-10-15: Cloudflare Workers (no Pages heredado), igual que demo-tatuajes y portafolio: `workers_dev: true` y build propio en `wrangler.jsonc` que copia index.html a publico/.
+- 2026-10-15: revisión final aplicada: rojo solo en acciones, precios del flash y sellos; esquinas rectas en chips; el título de cada pieza va rotulado en la hoja (el h3 del pie queda solo para lectores de pantalla salvo si hay foto).
 - 2026-10-15: dirección de arte "Calco que se entinta": cada dibujo aparece como línea violeta de stencil térmico y se entinta en negro/rojo (scroll, cursor o al aparecer). El violeta solo vive en dibujos sin entintar; el rojo es el único acento (acciones, precios, sello).
 - 2026-10-15: datos de contacto como marcadores (`[DIRECCIÓN]`, `[CIUDAD]`, `[BARRIO]`, `[CORREO]`, `[WHATSAPP]`, `[INSTAGRAM]`, `[INSTAGRAM_<ARTISTA>]`) por petición del usuario; nada tomado de las webs de referencia.
 - 2026-10-15: sin datos válidos, WhatsApp abre `https://wa.me/?text=…` (elegir contacto) y el email abre `mailto:` sin destinatario, para que la demo funcione igual.

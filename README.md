@@ -21,7 +21,7 @@ Abre `index.html` y edita el bloque **DATOS DE LA WEB** del principio:
 
 ## Publicar
 
-- **Cloudflare Pages**: Workers & Pages → Create → Pages → Connect to Git → este repositorio. Framework preset: *None*. Build command: vacío. Build output directory: `/`.
+- **Cloudflare** (actual: https://demo-tatuaje-2.e275.workers.dev): Workers & Pages → Create → Continue with GitHub → este repositorio → Implementar. `wrangler.jsonc` ya trae la configuración y cada push a `main` vuelve a publicar.
 - **Netlify / Vercel**: importar el repositorio sin comando de build.
 - **GitHub Pages**: Settings → Pages → Deploy from branch → `main` / root.
 
